@@ -4,6 +4,7 @@ import com.aim.umc10th.domain.member.code.MemberSuccessCode;
 import com.aim.umc10th.domain.member.converter.MemberConverter;
 import com.aim.umc10th.domain.member.dto.MemberRequestDTO;
 import com.aim.umc10th.domain.member.dto.MemberResponseDTO;
+import com.aim.umc10th.domain.member.entity.Member;
 import com.aim.umc10th.domain.member.enums.MissionStatus;
 import com.aim.umc10th.domain.member.service.MemberQueryService;
 import com.aim.umc10th.domain.member.service.MemberService; // 추가
@@ -114,7 +115,7 @@ public class MemberRestController {
     @GetMapping("/me/points")
     public ApiResponse<MemberResponseDTO.MyPointDTO> getMyPoint(){
         return ApiResponse.onSuccess(GeneralSuccessCode.OK,
-                MemberResponseDTO.MyPointDTO.builder().point(5000).build());
+                MemberResponseDTO.MyPointDTO.builder().point(5000L).build());
     }
 
     //(마이페이지) 내 리뷰 목록 조회(페이징)
@@ -151,4 +152,17 @@ public class MemberRestController {
         Page<MemberMission> missionList = memberQueryService.getMissionList(memberId, status, page);
         return ApiResponse.onSuccess(MemberConverter.toMissionListDTO(missionList));
     }
+
+    @GetMapping("/mypage/{memberId}")
+    public ApiResponse<MemberResponseDTO.MyPageResultDTO> getMyPage(@PathVariable Long memberId){
+        // 서비스에서 Member 엔터티 가져오기
+        Member member = memberQueryService.getMyPageInfo(memberId);
+
+        // 서비스에서 리뷰 개수 가져오기. 테이블에 리뷰 개수 관련은 없으니 직접 계산한다.
+        Integer reviewCount = memberQueryService.getReviewCount(memberId);
+
+        //컨버터를 통해 엔터티+숫자를 DTO러 변환하연 반환한다.
+        return ApiResponse.onSuccess(MemberConverter.toMyPageResultDTO(member,reviewCount));
+    }
+
 }

@@ -43,4 +43,14 @@ public class MemberConverter {
                 .missionList(missionDetailDTOList)
                 .build();
     }
+
+    public static MemberResponseDTO.MyPageResultDTO toMyPageResultDTO(Member member, Integer reviewCount){
+        return MemberResponseDTO.MyPageResultDTO.builder()
+                .name(member.getName())
+                .email(member.getEmail())
+                .phone_number(member.getPhoneNumber())
+                .point(member.getPoint())
+                .reviewCount(reviewCount)
+                .build();
+    }
 }

@@ -32,7 +32,7 @@ public class Member extends BaseEntity {
     private String email;
 
     @Column(columnDefinition = "INTEGER DEFAULT 0") //Point 기본값 필요
-    private Integer point;
+    private Long point;
 
     @Column(name = "phone_number")
     private String phoneNumber;

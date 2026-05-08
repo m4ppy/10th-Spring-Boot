@@ -17,7 +17,7 @@ public class MemberResponseDTO {
             String profileUrl,
             String email,
             String phoneNumber,
-            Integer point
+            Long point
     ){}
 
     //(미션) 미션 목록 조회 결과 (페이징 추가)
@@ -74,7 +74,7 @@ public class MemberResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class MyPointDTO{
-        Integer point;
+        Long point;
     }
 
     //내 리뷰 목록 조회 결과 (페이징도 포함)
@@ -100,5 +100,17 @@ public class MemberResponseDTO {
         Float score;
         String body;
         LocalDate createdAt;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MyPageResultDTO{
+        String name;
+        String email;
+        String phone_number;
+        Long point;
+        Integer reviewCount;
     }
 }

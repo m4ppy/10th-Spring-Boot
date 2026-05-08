@@ -249,3 +249,11 @@ commit의 특징으로는 commit이 호출되면 JPA는 내부적으로 flush를
 #### 내가 진행중, 진행 완료한 미션 모아서 보는 쿼리(페이징 포함)
 ![미션 모아서 보는 쿼리(페이징 포함)](./images/status1.png)
 ![미션 모아서 보는 쿼리(페이징 포함)](./images/status2.png)
+
+#### 마이페이지 화면 쿼리
+![마이페이지](./images/MyPage1.png)
+![마이페이지](./images/MyPage2.png)
+
+#### 홈 화면 쿼리 (현재 선택 된 지역에서 도전이 가능한 미션 목록, 페이징 포함)
+![홈 화면 쿼리](./images/Home1.png)
+![홈 화면 쿼리](./images/Home2.png)
