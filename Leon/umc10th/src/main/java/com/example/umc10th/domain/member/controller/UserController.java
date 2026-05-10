@@ -29,19 +29,14 @@ public class UserController {
         return ApiResponse.onSuccess(code, userService.getMyInfo(memberId));
     }
 
-    @PostMapping("/me/missions")
+    @GetMapping("/me/missions")
     public ApiResponse<Page<MemberResponseDTO.MyMission>> getMyMissions(
-            @RequestBody MemberRequestDTO.MyMissionRequest request,
             @RequestParam(required = false) MissionStatus status,
             @PageableDefault(size = 10) Pageable pageable
     ) {
-
+        Long memberId = 1L;
         BaseSuccessCode code = MemberSuccessCode.OK;
-        return ApiResponse.onSuccess(code, userService.getMyMissions(
-                request.getMemberId(),
-                status,
-                pageable
-        ));
+        return ApiResponse.onSuccess(code, userService.getMyMissions(memberId, status, pageable));
     }
 
     @GetMapping("/me/reviews")

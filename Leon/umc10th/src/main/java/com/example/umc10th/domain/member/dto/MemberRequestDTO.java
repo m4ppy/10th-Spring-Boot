@@ -29,8 +29,4 @@ public class MemberRequestDTO {
         private List<Long> categoryIds;
     }
 
-    @Getter
-    public static class MyMissionRequest {
-        private Long memberId;
-    }
 }
