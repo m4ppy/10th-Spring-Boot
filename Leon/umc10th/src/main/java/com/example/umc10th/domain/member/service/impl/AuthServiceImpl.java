@@ -27,7 +27,7 @@ public class AuthServiceImpl implements AuthService {
 
         Member savedMember = memberRepository.save(member);
 
-        return memberConverter.toGetMyInfo(savedMember);
+        return memberConverter.toMyInfo(savedMember);
     }
 
     @Override

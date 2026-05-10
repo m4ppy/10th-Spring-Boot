@@ -1,6 +1,6 @@
 package com.example.umc10th.domain.member.service.impl;
 
-import com.example.umc10th.domain.member.converter.UserConverter;
+import com.example.umc10th.domain.member.converter.MemberConverter;
 import com.example.umc10th.domain.member.dto.MemberResponseDTO;
 import com.example.umc10th.domain.member.entity.FoodCategory;
 import com.example.umc10th.domain.member.entity.Member;
@@ -33,14 +33,14 @@ public class UserServiceImpl implements UserService {
     private final FoodCategoryRepository foodCategoryRepository;
     private final MemberFoodCategoryRepository memberFoodCategoryRepository;
 
-    private final UserConverter userConverter;
+    private final MemberConverter memberConverter;
 
     @Override
     public MemberResponseDTO.GetMyInfo getMyInfo(Long memberId) {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new RuntimeException("회원 없음"));
 
-        return userConverter.toMyInfo(member);
+        return memberConverter.toMyInfo(member);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 
         Page<MemberMission> page = memberMissionRepository.findMyMissions(memberId, status, pageable);
 
-        return page.map(userConverter::toMyMission);
+        return page.map(memberConverter::toMyMission);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
         List<Review> reviews = reviewRepository.findByMemberId(memberId);
 
         return reviews.stream()
-                .map(userConverter::toMyReview)
+                .map(memberConverter::toMyReview)
                 .toList();
     }
 
