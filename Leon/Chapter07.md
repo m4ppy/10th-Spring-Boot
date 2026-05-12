@@ -229,3 +229,7 @@ public static class Signup {
 
     }
 ```
+
+
+![API_validation_example_1.png](images/API_validation_example_1.png)
+![API_validation_example_2.png](images/API_validation_example_2.png)
