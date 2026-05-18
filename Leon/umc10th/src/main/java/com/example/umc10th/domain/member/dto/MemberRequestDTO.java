@@ -28,4 +28,5 @@ public class MemberRequestDTO {
     public static class SetPreferences {
         private List<Long> categoryIds;
     }
+
 }
