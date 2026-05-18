@@ -186,9 +186,9 @@ public class MemberService {
 - 오프셋 기반 페이지네이션 응답
 - 사용자 ID 는 Request Body 에서 받기
 
-![API_member_mission_1.png](images/API_member_mission_1.png)
-![API_member_mission_2.png](images/API_member_mission_2.png)
-![API_member_mission_3.png](images/API_member_mission_3.png)
+![API_member_mission_1.png](images/week7/API_member_mission_1.png)
+![API_member_mission_2.png](images/week7/API_member_mission_2.png)
+![API_member_mission_3.png](images/week7/API_member_mission_3.png)
 
 ---
 
@@ -196,9 +196,9 @@ public class MemberService {
 
 - 커서 기반 페이지네이션 응답
 
-![API_member_review_1.png](images/API_member_review_1.png)
-![API_member_review_2.png](images/API_member_review_3.png)
-![API_member_review_3.png](images/API_member_review_2.png)
+![API_member_review_1.png](images/week7/API_member_review_1.png)
+![API_member_review_2.png](images/week7/API_member_review_3.png)
+![API_member_review_3.png](images/week7/API_member_review_2.png)
 
 ---
 
@@ -231,5 +231,5 @@ public static class Signup {
 ```
 
 
-![API_validation_example_1.png](images/API_validation_example_1.png)
-![API_validation_example_2.png](images/API_validation_example_2.png)
+![API_validation_example_1.png](images/week7/API_validation_example_1.png)
+![API_validation_example_2.png](images/week7/API_validation_example_2.png)
