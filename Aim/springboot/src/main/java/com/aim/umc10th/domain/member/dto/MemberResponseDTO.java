@@ -17,16 +17,21 @@ public class MemberResponseDTO {
             String profileUrl,
             String email,
             String phoneNumber,
-            Integer point
+            Long point
     ){}
 
-    //(미션) 미션 목록 조회용
+    //(미션) 미션 목록 조회 결과 (페이징 추가)
     @Builder
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     public static class MissionListDTO{ //미션들이 담긴 바구니
         List<MissionDetailDTO> missionList;
+        Integer listSize; //현재 페이지 데이터 개수
+        Integer totalPage; //전체 페이지 수
+        Long totalElements; //전제 데이터 개수
+        Boolean isFirst; //첫 페이지 여부
+        Boolean isLast;  //마지막 페이지 여부
     }
 
     @Builder
@@ -35,9 +40,12 @@ public class MemberResponseDTO {
     @AllArgsConstructor
     public static class MissionDetailDTO{ //바구니 안에 든 미션 하나하나
         Long missionId;
+        String storeName; //가게 이름
         Integer reward;
         String deadline;
         String missionSpec;
+        String status; //CHALLENGING 또는 COMPLETE 구분
+        LocalDate createdAt; //생성일자
     }
 
     //회원가입 결과
@@ -66,7 +74,7 @@ public class MemberResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class MyPointDTO{
-        Integer point;
+        Long point;
     }
 
     //내 리뷰 목록 조회 결과 (페이징도 포함)
@@ -94,7 +102,15 @@ public class MemberResponseDTO {
         LocalDate createdAt;
     }
 
-
-
-
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MyPageResultDTO{
+        String name;
+        String email;
+        String phone_number;
+        Long point;
+        Integer reviewCount;
+    }
 }
