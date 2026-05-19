@@ -196,4 +196,77 @@ Authorization: Bearer {JWT_TOKEN}
 
 ---
 
-# 3. 미션 기록
+# 3. 프로젝트 변경사항
+
+## 6주차 리뷰 기반 프로젝트 수정된 항목들
+
+### 1. 리뷰 응답 DTO, 멤버 컨버터, 리뷰 컨버터 수정 
+> rating 이 BigDemical 이 아닌 Int 였던 점, 변환 과정이 이상했던 점 수정
+
+### 2. toMyReview 리뷰를 변환하는 컨버터를 멤버 컨버터에서 리뷰 컨터버로 이동
+
+### 3. 요청 DTO 에 기본 생성자 추가
+- AccessLevel.PROTECTED 로 지정
+
+### 4. Member 의 Gender 필드를 Enum 으로 변경
+
+### 5. handleMemberException → handleProjectException 으로 네이밍 수정
+
+### 6. RuntimeException 이 아닌 각자 알맞은 예외를 던지도록 변경
+
+### 7. preference → category 로 네이밍 통일
+
+### 8. MemberMissionRepository 에서 findMyMissions 에 countQuery 명시
+
+### 9. Member 엔티티에서 @Builder 제거
+> 정적 팩토리 메서드와 빌더를 혼용적으로 사용하던 점을 수정
+- 엔티티는 정적 팩토리 메서드를 사용하도록 통일
+
+### 10. 서비스 인터페이스와 서비스 구현체 합침
+- 서비스 구현체 하나로 변경
+
+### 11. Store 를 따로 도메인으로 분리
+- 스토어, 지역 엔티티 이동 
+- 스토어, 지역 리포지토리 이동 
+- 스토어, 지역 컨트롤러 이동 및 서비스를 미션 서비스와 리뷰 서비스에 통합해서 컨트롤러와 서비스 분리시킴
+
+### 12. 복합키 → 단일키 구조로 변경
+> 원래 ERD 설계 상으로 복합 키를 사용해 그대로 구현했었지만 쿼리문 복잡도 상승 등의 이유로 변경
+- 엔티티 변경 및 DB 생성 쿼리 변경
+
+
+### 13. password 관련 코드 추가 
+> 원래 소설 UID 로그인이라 생각해 패스워드가 필요없다고 생각해 구현이 애매했음 (DTO 에만 password 구현되어 있었음)
+- 멤버 DB 생성 쿼리 수정
+
+---
+
+# 4. 미션 기록
+
+## Spring Security 적용
+
+![spring_security_structure.png](images/week8/spring_security_structure.png)
+
+---
+
+## Signup API 
+
+![API_signup_1.png](images/week8/API_signup_1.png)
+![API_signup_2.png](images/week8/API_signup_2.png)
+
+---
+
+## Login API 
+
+![API_login_1.png](images/week8/API_login_1.png)
+![API_login_2.png](images/week8/API_login_2.png)
+
+---
+
+## PUBLIC / PRIVATE API
+
+SecurityConfig.java 에서 설정
+
+PRIVATE API 접근 예시 (401)
+
+![example_401_response.png](images/week8/example_401_response.png)

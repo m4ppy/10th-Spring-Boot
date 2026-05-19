@@ -53,6 +53,8 @@ public class Member extends BaseEntity {
     ) {
         Member member = new Member();
         member.password = password;
+        member.socialUid = "temp";
+        member.socialType = "temp";
         member.name = name;
         member.gender = gender;
         member.birthDate = birthDate;
@@ -60,5 +62,9 @@ public class Member extends BaseEntity {
         member.email = email;
         member.point = 0;
         return member;
+    }
+
+    public void encodePassword(String password) {
+        this.password = password;
     }
 }
